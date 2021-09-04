@@ -1,0 +1,41 @@
+﻿@model IEnumerable<projetocaixa.Models.Conta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Incluir">Incluir Conta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaldoInicial)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaldoInicial)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodConta">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CodConta">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CodConta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
